@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.ftpservers.Client.SimpleFTPClientController"
+      spacing="10">
+
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <GridPane hgap="5" vgap="5">
+        <Label text="Host:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfHost" GridPane.rowIndex="0" GridPane.columnIndex="1" text="localhost"/>
+
+        <Label text="Порт:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfPort" GridPane.rowIndex="1" GridPane.columnIndex="1" text="2121"/>
+
+        <Label text="Пользователь:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="tfUser" GridPane.rowIndex="2" GridPane.columnIndex="1" text="user"/>
+
+        <Label text="Пароль:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <PasswordField fx:id="tfPass" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10">
+        <Button fx:id="btnConnect" text="Подключиться" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+        <Button fx:id="btnRegister" text="Регистрация" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+    </HBox>
+
+    <HBox spacing="10">
+        <Button fx:id="btnUp" text="Вверх по каталогу" disable="true" />
+        <Button fx:id="btnList" text="Обновить" disable="true"/>
+    </HBox>
+
+    <TableView fx:id="tableView" prefHeight="250">
+        <placeholder>
+            <Label text="Нет данных" />
+        </placeholder>
+        <columns>
+            <TableColumn fx:id="colName" text="Имя файла" prefWidth="200"/>
+            <TableColumn fx:id="colType" text="Тип" prefWidth="100"/>
+            <TableColumn fx:id="colSize" text="Размер (KB)" prefWidth="100"/>
+            <TableColumn fx:id="colTime" text="Время изменения" prefWidth="180"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10">
+        <Button fx:id="btnDownload" text="Скачать" disable="true" />
+        <Button fx:id="btnUpload" text="Загрузить" disable="true" />
+        <Button fx:id="btnDelete" text="Удалить" disable="true" />
+        <Button fx:id="btnMkdir" text="Новая папка" disable="true"/>
+        <Button fx:id="btnRmdir" text="Удалить папку" disable="true"/>
+        <Button fx:id="btnDisconnect" text="Отключиться" disable="true"/>
+        <Button fx:id="btnNewWindow" text="Новое окно"/>
+    </HBox>
+
+    <Label fx:id="lblStatus" text="Не подключено" />
+
+</VBox>
